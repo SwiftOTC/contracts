@@ -1091,7 +1091,7 @@ contract OTCSmartContract is ReentrancyGuard, Ownable {
         nonReentrant
         noContractsAllowed
     {
-        require(orderIds.length < orders.length, "Invalid orderIds");
+        require(orderIds.length <= orders.length, "Invalid orderIds");
         for (uint256 i = 0; i < orderIds.length; i++) {
             require(
                 (orderIds[i] < orders.length) && (orderIds[i] >= 0),
